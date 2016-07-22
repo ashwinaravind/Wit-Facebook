@@ -142,7 +142,9 @@ console.log("got a msg");
 function sendMessage(recipientId, message) {
     request({
         url: 'https://graph.facebook.com/v2.6/me/messages',
-        qs: {access_token: process.env.PAGE_ACCESS_TOKEN},
+     //   qs: {access_token: process.env.PAGE_ACCESS_TOKEN},
+       qs: {access_token: "EAAB8z88GZAG8BAB9x7Tt2my6ZBvoSJth3eZCeJKzGPUNsmjpuLKZAjQgCl1ZCLvsReZBL5RM9wdsTc0PD4ims1PNEZBa7AkZBwQoXhV17yyK7Lcolu0hKdOPfKPhsiWxXJqlFDmG6nbLZBYLAJgBdAeo3UoB6hjRT28q1bpcrfBjqPAZDZD"},
+
         method: 'POST',
         json: {
             recipient: {id: recipientId},
