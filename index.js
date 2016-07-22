@@ -84,7 +84,7 @@ app.post('/webhook', (req, res) => {
 
     // We retrieve the Facebook user ID of the sender
     const sender = messaging.sender.id;
-
+ 	sendMessage(messaging.sender.id, {text: "Bot Replies1:sdsds "});
     // We retrieve the user's current session, or create one if it doesn't exist
     // This is needed for our bot to figure out the conversation history
     const sessionId = findOrCreateSession(sender);
@@ -108,7 +108,7 @@ app.post('/webhook', (req, res) => {
       // This will run all actions until our bot has nothing left to do
       wit.runActions(
         sessionId, // the user's current session
-        msg, // the user's message 
+        msg, // the user's message
         sessions[sessionId].context, // the user's current session state
         (error, context) => {
           if (error) {
@@ -134,3 +134,22 @@ app.post('/webhook', (req, res) => {
   }
   res.sendStatus(200);
 });
+
+// generic function sending messages
+function sendMessage(recipientId, message) {
+    request({
+        url: 'https://graph.facebook.com/v2.6/me/messages',
+        qs: {access_token: process.env.PAGE_ACCESS_TOKEN},
+        method: 'POST',
+        json: {
+            recipient: {id: recipientId},
+            message: message,
+        }
+    }, function(error, response, body) {
+        if (error) {
+            console.log('Error sending message: ', error);
+        } else if (response.body.error) {
+            console.log('Error: ', response.body.error);
+        }
+    });
+};
