@@ -87,7 +87,7 @@ console.log("got a msg");
 
     // We retrieve the Facebook user ID of the sender
     const sender = messaging.sender.id;
- 	sendMessage(messaging.sender.id, {text: "Bot Replies1:sdsds "});
+ 	//sendMessage(messaging.sender.id, {text: "Bot Replies1:sdsds "});
     // We retrieve the user's current session, or create one if it doesn't exist
     // This is needed for our bot to figure out the conversation history
     const sessionId = findOrCreateSession(sender);
