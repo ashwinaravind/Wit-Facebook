@@ -35,7 +35,7 @@ const actions = {
     // TODO: need to get Facebook user name
     const recipientId = context._fbid_;
     if (recipientId) {
-		sendMessage(recipientId, {text: "Bot Replies:found });
+		sendMessage(recipientId, {text: "Bot Replies:found" });
       // Yay, we found our recipient!
       // Let's forward our bot response to her.
 
