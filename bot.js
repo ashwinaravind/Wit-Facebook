@@ -35,8 +35,10 @@ const actions = {
     // TODO: need to get Facebook user name
     const recipientId = context._fbid_;
     if (recipientId) {
+		sendMessage(recipientId, {text: "Bot Replies:found });
       // Yay, we found our recipient!
       // Let's forward our bot response to her.
+
       FB.fbMessage(recipientId, message, (err, data) => {
         if (err) {
           console.log(
@@ -75,7 +77,7 @@ const actions = {
     // Here should go the api call, e.g.:
     // context.forecast = apiCall(context.loc)
     context.forecast = 'sunny';
-    	sendMessage(recipientId, {text: "Bot Replies: " + context.forecast});
+
     cb(context);
   },
 };
