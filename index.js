@@ -60,6 +60,8 @@ console.log("I'm wating for you @" + PORT);
 app.get('/', function(req, res) {
   res.send('"Only those who will risk going too far can possibly find out how far one can go." - T.S. Eliot');
 });
+console.log("webhook");
+
 
 // Webhook verify setup using FB_VERIFY_TOKEN
 app.get('/webhook', (req, res) => {
@@ -79,6 +81,7 @@ app.post('/webhook', (req, res) => {
   // Parsing the Messenger API response
   const messaging = FB.getFirstMessagingEntry(req.body);
   if (messaging && messaging.message) {
+console.log("got a msg");
 
     // Yay! We got a new message!
 
