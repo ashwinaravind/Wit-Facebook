@@ -6,6 +6,10 @@
 // * a Messenger Platform setup (https://developers.facebook.com/docs/messenger-platform/quickstart)
 // You need to `npm install` the following dependencies: body-parser, express, request.
 //
+
+
+var request = require('request');
+//var app = express();
 const bodyParser = require('body-parser');
 const express = require('express');
 
